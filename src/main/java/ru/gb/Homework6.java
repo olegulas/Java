@@ -1,5 +1,10 @@
 package ru.gb;
 
+
+import java.util.ArrayList;
+
+import static ru.gb.PersonEnum.PersonSex;
+
 public class Homework6 {
     //    Создать класс Person.
     //    У класса должны быть поля:
@@ -17,10 +22,14 @@ public class Homework6 {
 
 
     public static void main(String[] args) {
-        Person man = new Person("Vova","Putin", 62);
-        Person man1 = new Person("Ivan","Ivanov", 43);
-        System.out.println(man);
-        System.out.println(man1);
-        System.out.println(man.getFullPerson());
+        ArrayList<Person> persons = new ArrayList<>();
+        persons.add(new Person("Vova", "Ivan", 34, PersonSex.MEN, "Moscow"));
+        persons.add(new Person("Ivan", "Petrov", 19, PersonSex.MEN, "Tver"));
+        persons.add(new Person("Maria", "Alexandrova", 18, PersonSex.WOMAN, "St.Petersburg"));
+        persons.add(new Person("Varvara", "Smirnova", 21, PersonSex.WOMAN, "Belgorod"));
+        persons.add(new Person("Tamara", "Luk'yanova", 15, PersonSex.WOMAN, "Vladivostok"));
+        for (Person prs : persons) {
+            if (prs.getAge() > 20) System.out.println(prs.getFullPerson());
+        }
     }
 }
